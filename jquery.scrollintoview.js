@@ -112,14 +112,15 @@
 				// vertical scroll
 				if (options.direction.y === true)
 				{
-					if (rel.top < 0)
-					{
-						animOptions.scrollTop = dim.s.scroll.top + rel.top;
-					}
-					else if (rel.top > 0 && rel.bottom < 0)
-					{
-						animOptions.scrollTop = dim.s.scroll.top + Math.min(rel.top, -rel.bottom);
-					}
+					var content = document.getElementById("Content");
+                    if (rel.top < 0)
+                    {
+                        animOptions.scrollTop = (dim.s.scroll.top + rel.top);
+                    }
+                    else if (rel.top > 0 && rel.bottom < 0)
+                    {
+                        animOptions.scrollTop = dim.s.scroll.top + Math.min(rel.top, -rel.bottom) + content.offsetHeight - 80;
+                    }
 				}
 
 				// horizontal scroll
